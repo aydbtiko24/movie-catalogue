@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tvshow"
+            type="com.dicodingjetpackpro.moviecatalogue.domain.models.TvShow" />
+
+        <variable
+            name="callback"
+            type="com.dicodingjetpackpro.moviecatalogue.presentation.tvshow.TvShowAdapterCallback" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.MovieCatalogue.Card"
+        android:onClick="@{() -> callback.onItemClicked(ivPoster, tvshow)}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/keyline_4">
+
+            <ImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="@dimen/poster_width"
+                android:layout_height="@dimen/poster_height"
+                android:scaleType="centerCrop"
+                android:transitionName="@{@string/tvshow_transition_name(tvshow.id)}"
+                app:imageUrl="@{tvshow.posterUrl}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/keyline_4"
+                android:maxLines="3"
+                android:text="@{tvshow.title}"
+                android:textAppearance="?textAppearanceHeadline6"
+                app:layout_constraintBottom_toTopOf="@+id/tv_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_poster"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="@tools:sample/lorem/random" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/keyline_4"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:drawablePadding="@dimen/keyline_2"
+                android:gravity="center_vertical"
+                android:text="@{tvshow.readableDate}"
+                android:textAppearance="?textAppearanceSubtitle1"
+                android:textColor="@color/material_on_surface_emphasis_medium"
+                app:drawableLeftCompat="@drawable/ic_calendar"
+                app:layout_constraintBottom_toTopOf="@+id/tv_rate"
+                app:layout_constraintStart_toEndOf="@id/iv_poster"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                tools:text="@tools:sample/date/ddmmyy" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/keyline_4"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:drawablePadding="@dimen/keyline_2"
+                android:gravity="center_vertical"
+                android:text="@{String.valueOf(tvshow.voteAverage)}"
+                android:textAppearance="?textAppearanceSubtitle1"
+                app:drawableLeftCompat="@drawable/ic_star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_poster"
+                app:layout_constraintTop_toBottomOf="@+id/tv_date"
+                tools:text="8.5" />
+
+            <ImageButton
+                android:id="@+id/btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:onClick="@{()->callback.onItemShared(tvshow.title)}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_poster"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_share_colored"
+                tools:ignore="ContentDescription,UnusedAttribute" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

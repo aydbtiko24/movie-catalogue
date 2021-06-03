@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+
+    <string name="movie_label">Movies</string>
+    <string name="movie_detail_label">Detail Movie</string>
+    <string name="tv_shows_label">Tv Shows</string>
+    <string name="tv_shows_detail_label">Detail Tv Show</string>
+    <string name="favorite_label">Favorite</string>
+
+    <string name="overview">Overview</string>
+    <string name="release_date">Release Date</string>
+    <string name="vote_average">Vote Average</string>
+
+    <string name="share_title">Share with:</string>
+    <string name="share_text">See %1$s On Movie Catalogue</string>
+
+    <string name="action_share">Share</string>
+
+    <string name="action_retry">Retry</string>
+
+    <string name="failed_get_data">Failed to get data.\n(%1$s)</string>
+
+    <string name="add_to_favorite">Add To Favorite</string>
+    <string name="remove_from_favorite">Remove Favorite</string>
+
+    <string name="empty_favorite_hint">No Favorite %1$s yet</string>
+
+    <string name="popular_label">Popular</string>
+    <string name="now_playing_label">Now Playing</string>
+    <string name="upcoming_label">Upcoming</string>
+    <string name="top_rated_label">Top Rated</string>
+
+    <string name="on_the_air_label">On The Air</string>
+    <string name="airing_today_label">Airing Today</string>
+
+    <string name="detail_movie_transition_name">detail movie transition</string>
+    <string name="movie_transition_name">movie transition %1$s</string>
+
+    <string name="detail_tvshow_transition_name">detail tvshow transition</string>
+    <string name="tvshow_transition_name">tvshow transition %1$s</string>
+
+    <string name="favorite_transition_name">favorite transition %1$s</string>
+
+</resources>

@@ -1,0 +1,70 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.MovieCatalogue" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black_800</item>
+        <item name="colorPrimaryVariant">@color/black_900</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/light_green_200</item>
+        <item name="colorSecondaryVariant">@color/light_green_200</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?colorPrimaryVariant</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name="android:colorBackground">@color/black_800</item>
+        <item name="colorSurface">@color/dark_grey_5_overlay</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black_900</item>
+        <item name="colorOnBackground">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnError">@color/black_900</item>
+
+        <!--type attributes-->
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MovieCatalogue.Headline6</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.MovieCatalogue.Headline5</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MovieCatalogue.Subtitle1</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MovieCatalogue.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MovieCatalogue.Body2</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.MovieCatalogue.Overline</item>
+
+    </style>
+
+    <style name="Theme.MovieCatalogue.SplashScreen">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowBackground">@drawable/bg_splashscreen</item>
+    </style>
+
+    <style name="Theme.MovieCatalogue.Toolbar">
+        <item name="colorPrimary">?colorSurface</item>
+        <item name="colorOnSurface">?colorOnPrimary</item>
+        <item name="colorControlNormal">?colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.MovieCatalogue.Toolbar" parent="Widget.MaterialComponents.Toolbar.PrimarySurface">
+        <item name="android:theme">@style/Theme.MovieCatalogue.Toolbar</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="Widget.MovieCatalogue.Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@drawable/chip_bg_color</item>
+        <item name="android:textColor">@drawable/chip_text_color</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="Widget.MovieCatalogue.ScrollBar" parent="">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarSize">4dp</item>
+        <item name="android:scrollbarThumbVertical">?colorSecondary</item>
+    </style>
+
+    <style name="Widget.MovieCatalogue.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/keyline_4</item>
+        <item name="android:layout_marginEnd">@dimen/keyline_4</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">@dimen/stroke_size</item>
+        <item name="strokeColor">@color/color_stroke</item>
+    </style>
+
+</resources>

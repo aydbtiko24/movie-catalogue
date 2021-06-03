@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.tvshow.TvShowFragment">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dicodingjetpackpro.moviecatalogue.presentation.tvshow.TvShowViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/scrollable_header_scene_tv">
+
+        <include
+            android:id="@+id/type_filter"
+            layout="@layout/content_type_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/swipe_refresh_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dicodingjetpackpro.moviecatalogue.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type_filter"
+            app:onRefreshListener="@{viewmodel::forceRefresh}"
+            app:refreshing="@{viewmodel.dataIsLoading}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_tvshow"
+                style="@style/Widget.MovieCatalogue.ScrollBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/tv_show_item_view" />
+
+        </com.dicodingjetpackpro.moviecatalogue.widget.SwipeRefreshLayout>
+
+        <ViewStub
+            android:id="@+id/error_view_stub"
+            android:inflatedId="@+id/error_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout="@layout/error_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</layout>

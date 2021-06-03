@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="keyline_2">8dp</dimen>
+    <dimen name="keyline_3">12dp</dimen>
+    <dimen name="keyline_4">16dp</dimen>
+
+    <dimen name="poster_height">160dp</dimen>
+    <dimen name="poster_width">100dp</dimen>
+    <dimen name="fab_min_height">58dp</dimen>
+
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+
+    <dimen name="stroke_size">0.8dp</dimen>
+    <dimen name="img_detail_height">200dp</dimen>
+
+    <dimen name="rounded_corner_size">4dp</dimen>
+
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.dicodingjetpackpro.moviecatalogue.presentation.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/home_to_detail_movie"
+            app:destination="@id/detail_movie" />
+
+        <action
+            android:id="@+id/home_to_detail_tv_show"
+            app:destination="@+id/detail_tv_show" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_movie"
+        android:name="com.dicodingjetpackpro.moviecatalogue.presentation.detailmovie.DetailMovieFragment"
+        tools:layout="@layout/fragment_detail_movie">
+        <argument
+            android:name="movie_args"
+            app:argType="com.dicodingjetpackpro.moviecatalogue.presentation.movie.MovieParcelable" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_tv_show"
+        android:name="com.dicodingjetpackpro.moviecatalogue.presentation.detailtvshow.DetailTvShowFragment"
+        tools:layout="@layout/fragment_detail_tv_show">
+        <argument
+            android:name="tvshow_args"
+            app:argType="com.dicodingjetpackpro.moviecatalogue.presentation.tvshow.TvShowParcelable" />
+    </fragment>
+
+</navigation>
