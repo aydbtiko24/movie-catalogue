@@ -1,0 +1,84 @@
+name: build
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**/README.md'
+  workflow_dispatch:
+
+jobs:
+  super-linter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Lint Code Base
+        uses: docker://github/super-linter:latest
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_MD: false
+          VALIDATE_XML: true
+          VALIDATE_KOTLIN: true
+
+  unit-test:
+    needs: [ super-linter ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      # Cache gradle
+      - name: Cache Gradle and wrapper
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: cache-${{ runner.os }}-${{ matrix.jdk }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Run unit tests
+        run: ./gradlew test
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit_test_report
+          path: app/build/reports/tests/testDebugUnitTest/
+
+  android-test:
+    needs: [ unit-test ]
+    runs-on: macos-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      # Cache gradle
+      - name: Cache Gradle and wrapper
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: cache-${{ runner.os }}-${{ matrix.jdk }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Run android tests (api 27)
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 27
+          target: default
+          arch: x86
+          script: ./gradlew connectedCheck --stacktrace
+
+      - name: Upload android test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: android_test_report
+          path: app/build/reports/androidTests/connected/
