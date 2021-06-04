@@ -78,7 +78,7 @@ To allow the business to adapt to changing technology and interfaces. While the 
 Doubts or want to present your opinions, views? You're always welcome. You can [start discussions](https://github.com/aydbtiko24/movie-catalogue/discussions).
 
 ## Published App 🏪
-Want to see or maybe try my Published App on Google Play? [Let's go I'll take you there!](bit.ly/apps-highair)😀.
+Want to see or maybe try my Published App on Google Play? [Let's go! I'll take you there!](https://bit.ly/apps-highair)😀.
 
 
 ## License
